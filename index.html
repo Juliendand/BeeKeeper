@@ -6,12 +6,16 @@
     <title>BeeKeeper App</title>
     <style>
         /* Style de base */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
         body, html {
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100%;
             font-family: Arial, sans-serif;
+            overflow: hidden; /* Empêche le défilement */
         }
 
         #app {
@@ -26,7 +30,6 @@
             background-repeat: repeat;
         }
 
-        /* Titre central avec fond transparent */
         .title {
             position: absolute;
             top: 3%;
@@ -36,25 +39,31 @@
             color: #333;
             text-align: center;
             font-weight: bold;
-            z-index: 10; /* Pour placer le titre au-dessus des boutons */
+            z-index: 10;
         }
 
         /* Conteneur de grille pour les boutons */
-        .button-container {
+        .main-container {
             display: grid;
-            grid-template-columns: repeat(6, 1fr); /* 6 colonnes pour la grille */
-            grid-auto-rows: 12.6vh; /* Hauteur de base des lignes */
+            grid-template-columns: repeat(6, 1fr);
+            grid-auto-rows: 12.6vh;
             gap: 10px;
             width: 95vw;
-            height: 95vh;
+            height: calc(100vh - 70px); /* Ajuste la hauteur en fonction du titre */
             position: absolute;
             top: 13%;
+            overflow: hidden;
         }
 
-        /* Style des boutons avec taille et position personnalisées */
-        .custom-button {
+        /* Taille et disposition spécifique pour chaque bouton */
+        .dim1 { grid-column: span 4; grid-row: span 6; }
+        .dim2 { grid-column: span 2; grid-row: span 3; }
+        .dim3 { grid-column: span 2; grid-row: span 3; }
+
+        /* Conteneurs cachés par défaut */
+        .content-container {
+            display: none;
             background-color: #FFA500;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
             color: white;
             border: 2px solid #8b5e3c;
             font-size: 18px;
@@ -62,24 +71,19 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            text-align: center;
             border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            z-index: 0;
+            position: relative;
         }
 
-        /* Effet de survol pour les boutons */
-        .custom-button:hover {
-            background-color: #cc8400;
+        /* Style de l'image */
+        #hivesContainer img {
+            width: 100%;
+            height: auto; /* Maintient le ratio de l'image */
+            object-fit: cover; /* Permet à l'image de remplir l'espace sans déformer */
         }
-
-        /* Taille et disposition spécifique pour chaque bouton */
-        .btn1 { grid-column: span 2; grid-row: span 6; } /* Grand bouton */
-        .btn2 { grid-column: span 2; grid-row: span 2; }
-        .btn3 { grid-column: span 2; grid-row: span 2; }
-        .btn4 { grid-column: span 2; grid-row: span 4; }
-        .btn5 { grid-column: span 2; grid-row: span 3; }
-        .btn6 { grid-column: span 2; grid-row: span 1; }
     </style>
 </head>
 <body>
@@ -88,22 +92,17 @@
         <div class="title">BeeKeeper</div>
 
         <!-- Conteneur de boutons en style "mur de briques" -->
-        <div class="button-container">
-            <button class="custom-button btn1" onclick="navigateTo('hives')">Gestion des ruches</button>
-            <button class="custom-button btn2" onclick="navigateTo('accounting')">Comptabilité</button>
-            <button class="custom-button btn3" onclick="navigateTo('reports')">Rapports</button>
-            <button class="custom-button btn4" onclick="navigateTo('weather')">Météo</button>
-            <button class="custom-button btn5" onclick="navigateTo('alerts')">Alertes</button>
-            <button class="custom-button btn6" onclick="navigateTo('settings')">Paramètres</button>
+        <div class="main-container">
+            <!-- Conteneurs cachés associés aux boutons -->
+            <div class="content-container dim1" id="hivesContainer">
+                <img src="https://example.com/your-image.jpg" alt="Ruches">
+                <!-- Contenu supplémentaire, comme du texte, peut aussi être ajouté ici si nécessaire -->
+            </div>
+            <div class="content-container dim2" id="reportsContainer">Contenu pour les rapports</div>
+            <div class="content-container dim3" id="weatherContainer">Contenu pour la météo</div>
         </div>
     </div>
 
-    <script>
-        function navigateTo(section) {
-            // Logique de navigation (simulée avec une alerte ici)
-            alert("Navigation vers " + section);
-            // window.location.href = section + ".html"; // Redirection si nécessaire
-        }
-    </script>
+    <script src="js/buttons.js"></script>
 </body>
 </html>
