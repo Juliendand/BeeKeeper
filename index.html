@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeeKeeper App</title>
+    <style>
+        /* Style de base */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        #app {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffdc2e url('https://www.transparenttextures.com/patterns/light-honeycomb-dark.png');
+            background-size: auto;
+            background-repeat: repeat;
+        }
+
+        /* Titre central avec fond transparent */
+        .title {
+            position: absolute;
+            top: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 48px;
+            color: #333;
+            text-align: center;
+            font-weight: bold;
+            z-index: 10; /* Pour placer le titre au-dessus des boutons */
+        }
+
+        /* Conteneur de grille pour les boutons */
+        .button-container {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr); /* 6 colonnes pour la grille */
+            grid-auto-rows: 110px; /* Hauteur de base des lignes */
+            gap: 10px;
+            width: 95%;
+            height: 85%;
+            position: absolute;
+            top: 15%;
+        }
+
+        /* Style des boutons avec taille et position personnalisées */
+        .custom-button {
+            background-color: #FFA500;
+            color: white;
+            border: none;
+            font-size: 18px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        /* Effet de survol pour les boutons */
+        .custom-button:hover {
+            background-color: #cc8400;
+        }
+
+        /* Taille et disposition spécifique pour chaque bouton */
+        .btn1 { grid-column: span 2; grid-row: span 6; } /* Grand bouton */
+        .btn2 { grid-column: span 2; grid-row: span 2; }
+        .btn3 { grid-column: span 2; grid-row: span 2; }
+        .btn4 { grid-column: span 2; grid-row: span 4; }
+        .btn5 { grid-column: span 2; grid-row: span 3; }
+        .btn6 { grid-column: span 2; grid-row: span 1; }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- Titre central avec fond transparent -->
+        <div class="title">BeeKeeper</div>
+
+        <!-- Conteneur de boutons en style "mur de briques" -->
+        <div class="button-container">
+            <button class="custom-button btn1" onclick="navigateTo('hives')">Gestion des ruches</button>
+            <button class="custom-button btn2" onclick="navigateTo('accounting')">Comptabilité</button>
+            <button class="custom-button btn3" onclick="navigateTo('reports')">Rapports</button>
+            <button class="custom-button btn4" onclick="navigateTo('weather')">Météo</button>
+            <button class="custom-button btn5" onclick="navigateTo('alerts')">Alertes</button>
+            <button class="custom-button btn6" onclick="navigateTo('settings')">Paramètres</button>
+        </div>
+    </div>
+
+    <script>
+        function navigateTo(section) {
+            // Logique de navigation (simulée avec une alerte ici)
+            alert("Navigation vers " + section);
+            // window.location.href = section + ".html"; // Redirection si nécessaire
+        }
+    </script>
+</body>
+</html>
