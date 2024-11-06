@@ -29,7 +29,7 @@
         /* Titre central avec fond transparent */
         .title {
             position: absolute;
-            top: 5%;
+            top: 3%;
             left: 50%;
             transform: translateX(-50%);
             font-size: 48px;
@@ -43,19 +43,20 @@
         .button-container {
             display: grid;
             grid-template-columns: repeat(6, 1fr); /* 6 colonnes pour la grille */
-            grid-auto-rows: 110px; /* Hauteur de base des lignes */
+            grid-auto-rows: 12.6vh; /* Hauteur de base des lignes */
             gap: 10px;
-            width: 95%;
-            height: 85%;
+            width: 95vw;
+            height: 95vh;
             position: absolute;
-            top: 15%;
+            top: 13%;
         }
 
         /* Style des boutons avec taille et position personnalisées */
         .custom-button {
             background-color: #FFA500;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
             color: white;
-            border: none;
+            border: 2px solid #8b5e3c;
             font-size: 18px;
             font-weight: bold;
             display: flex;
