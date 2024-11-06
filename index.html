@@ -81,8 +81,8 @@
         /* Style de l'image */
         #hivesContainer img {
             width: 100%;
-            height: auto; /* Maintient le ratio de l'image */
-            object-fit: cover; /* Permet à l'image de remplir l'espace sans déformer */
+            max-height: 400px; /* Limite la hauteur de l'image */
+            object-fit: contain;
         }
     </style>
 </head>
@@ -95,7 +95,7 @@
         <div class="main-container">
             <!-- Conteneurs cachés associés aux boutons -->
             <div class="content-container dim1" id="hivesContainer">
-                <img src="https://example.com/your-image.jpg" alt="Ruches">
+                <img src="hive.png" alt="Ruches">
                 <!-- Contenu supplémentaire, comme du texte, peut aussi être ajouté ici si nécessaire -->
             </div>
             <div class="content-container dim2" id="reportsContainer">Contenu pour les rapports</div>
